@@ -1,0 +1,85 @@
+#container {
+    position: relative;
+    height: 91vh;
+    width: 97vw;
+    padding: 20px;
+    border: 3px solid black;
+}
+
+#SelectionContainer {
+    position: relative;
+    height: 20vh;
+    width: 60vw;
+    left: 20%;
+    top: 50%;
+    border: 3px solid black;
+}
+
+#joystick {
+    position: absolute;
+    bottom: 200px;
+    right: 43vw;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#cursor {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.hover-button {
+    position: absolute;
+    width: 250px;
+    height: 125px;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+#linktext{
+    position:absolute;
+    bottom:2%;
+}
+
+#button1 {
+    top: 10%;
+    left: 20%;
+}
+
+#button2 {
+    top: 10%;
+    right: 20%;
+}
+
+#button3 {
+    top: 20%;
+    left: 20%;
+}
+
+#button4 {
+    top: 20%;
+    right: 20%;
+}
+
+#button5 {
+    top: 30%;
+    left: 20%;
+}
+
+#button6 {
+    top: 30%;
+    right: 20%;
+}
+
+#clear {
+    top: 40%;
+    right: 38%;
+}
