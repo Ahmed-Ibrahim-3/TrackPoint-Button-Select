@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="Style.css">
+    <link rel="stylesheet" type="text/css" href="Style.css" />
     <title>TrackPoint</title>
 </head>
 <body>
 <div id="container">
-
     <div id="joystick"></div>
     <div id="cursor"></div>
 
@@ -21,11 +20,14 @@
     <div id="SelectionContainer">
         <p id="selectedButton"></p>
     </div>
-
-    <div id="linktext">
-        <a href="Tap.html">Switch to tap input</a>
-    </div>
-
+</div>
+<div id="linktext">
+    <a href="index.html">Switch input</a>
+</div>
+<div class="sensitivity">
+    <p id="sens">Sensitivity :</p>
+    <button class="sens-button" id="sens-up">+</button>
+    <button class="sens-button" id="sens-down">-</button>
 </div>
 <script src="TrackPoint.js"></script>
 </body>

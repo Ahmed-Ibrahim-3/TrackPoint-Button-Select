@@ -9,6 +9,8 @@ window.onload = function ()
         y: joystick.offsetTop + joystick.offsetHeight / 2,
     };
     var sensitivity = 0.025; // cursor sensitivity
+    var sensText = document.getElementById("sens");
+    sensText.textContent = "Sensitivity: " + sensitivity
     var buttons = document.getElementsByClassName("hover-button");
     var hoverTimeouts = Array(buttons.length);
     var hoverIntervals = Array(buttons.length);
@@ -18,13 +20,10 @@ window.onload = function ()
         {
             e.preventDefault();
             var touch = e.touches[0];
-            // find new cursor position
             var dx = (touch.clientX - joystickCenter.x) * sensitivity;
             var dy = (touch.clientY - joystickCenter.y) * sensitivity;
             var newLeft = cursor.offsetLeft + dx;
             var newTop = cursor.offsetTop + dy;
-
-            // Check new cursor position is within container
             if (
                 newLeft >= 0 &&
                 newLeft <= container.offsetWidth - cursor.offsetWidth &&
@@ -32,12 +31,10 @@ window.onload = function ()
                 newTop <= container.offsetHeight - cursor.offsetHeight
             )
             {
-                // move cursor
                 cursor.style.left = newLeft + "px";
                 cursor.style.top = newTop + "px";
             }
 
-            // Check if cursor is overlaps with any buttons
             for (var i = 0; i < buttons.length; i++)
             {
                 (function (i)
@@ -59,7 +56,6 @@ window.onload = function ()
                         clearTimeout(hoverTimeouts[i]);
                         clearInterval(hoverIntervals[i]);
 
-                        // increase cursor size over time
                         hoverIntervals[i] = setInterval(function ()
                         {
                             cursor.style.width = parseInt(cursor.style.width) + 1 + "px";
@@ -69,7 +65,6 @@ window.onload = function ()
                         cursor.style.width = "10px";
                         cursor.style.height = "10px";
 
-                        // select button after 1000ms
                         hoverTimeouts[i] = setTimeout(function ()
                         {
                             if(button.id === "clear")
@@ -91,7 +86,6 @@ window.onload = function ()
                     }
                     else
                     {
-                        // reset to default button, cursor, and timeouts
                         button.style.backgroundColor = "";
                         button.style.color = "";
                         cursor.style.backgroundColor = "";
@@ -103,4 +97,28 @@ window.onload = function ()
         },
         false
     );
+    var sensUpButton = document.getElementById("sens-up");
+    var sensDownButton = document.getElementById("sens-down");
+
+    sensUpButton.addEventListener("touchstart", function () {
+        if (!(sensitivity + 0.005 > 1)){
+            sensitivity += 0.005;
+            updateSensitivityText();
+        } else{
+            alert("Sensitivity must not exceed 1")
+        }
+    });
+
+    sensDownButton.addEventListener("touchstart", function () {
+        if (!(sensitivity  - 0.005 < 0)){
+            sensitivity -= 0.005;
+            updateSensitivityText();
+        } else {
+            alert("sensitivity must be strictly greater than 0!")
+        }
+    });
+
+    function updateSensitivityText() {
+        sensText.textContent = "Sensitivity: " + sensitivity.toFixed(3);
+    }
 };

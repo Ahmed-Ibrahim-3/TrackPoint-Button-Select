@@ -76,33 +76,33 @@
 }
 
 #button1 {
-    top: 10%;
-    left: 20%;
+    top: 5%;
+    left: 10%;
 }
 
 #button2 {
-    top: 10%;
-    right: 20%;
+    top: 5%;
+    right: 10%;
 }
 
 #button3 {
-    top: 20%;
-    left: 20%;
+    top: 15%;
+    left: 10%;
 }
 
 #button4 {
-    top: 20%;
-    right: 20%;
+    top: 15%;
+    right: 10%;
 }
 
 #button5 {
-    top: 30%;
-    left: 20%;
+    top: 25%;
+    left: 10%;
 }
 
 #button6 {
-    top: 30%;
-    right: 20%;
+    top: 25%;
+    right: 10%;
 }
 
 #clear {
